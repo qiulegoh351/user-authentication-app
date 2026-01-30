@@ -1,0 +1,62 @@
+{
+  "input": {
+    "email": {
+      "title": "Email",
+      "placeholder": "Enter Username"
+    },
+    "password": {
+      "title": "Password",
+      "placeholder": "Enter Password"
+    },
+    "search": {
+      "placeholder": "Search"
+    },
+    "username": {
+      "title": "Username",
+      "placeholder": "Enter Username"
+    }
+  },
+  "label": {
+    "language": "Language",
+    "logoutConfirmation": "Are you sure you want to log out?",
+    "loading": "Loading",
+    "pleaseSelect": "Please Select",
+    "emptyOptions": "No Options",
+    "description": "Description",
+    "action": "Action",
+    "dateAndTime": "Date & Time",
+    "count": "Count",
+    "completed": "Completed",
+    "noDataFound": "No Data Found",
+    "invalidPassword": "Invalid Password",
+    "online": "Online",
+    "connectivityStatus": "Connectivity Status",
+    "connected": "Connected",
+    "disconnected": "Disconnected",
+    "status": {
+      "valid": "Valid",
+      "invalid": "Invalid",
+      "awaitingCheck": "Pending Verification",
+      "verifying": "Verifying"
+    },
+    "connectionLoss": "Connection Lost",
+    "changeLanguage": "Change Language",
+    "invalidAction": "Invalid action",
+    "offline": "Offline"
+  },
+  "button": {
+    "login": "Login",
+    "logout": "Log Out",
+    "cancel": "Cancel",
+    "update": "Update",
+    "save": "Save",
+    "next": "Next",
+    "continueAndSave": "Continue & Save",
+    "saveAndNext": "Save & Next",
+    "submit": "Submit",
+    "okay": "Okay",
+    "confirm": "Confirm",
+    "copy": "Copy",
+    "close": "Close"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "Login": {
+    "title": "登录"
+  },
+  "Home": {
+    "tools": "工具"
+  },
+  "Settings": {
+    "title": "设置"
+  },
+  "Signin": {
+    "success": "登录成功",
+    "failed": "登录失败"
+  }
+}

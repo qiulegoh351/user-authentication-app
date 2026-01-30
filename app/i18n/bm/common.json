@@ -1,0 +1,62 @@
+{
+  "input": {
+    "email": {
+      "title": "E-Mel",
+      "placeholder": "Masukkan Nama Pengguna"
+    },
+    "password": {
+      "title": "Kata Laluan",
+      "placeholder": "Masukkan Kata Laluan"
+    },
+    "search": {
+      "placeholder": "Cari"
+    },
+    "username": {
+      "title": "Nama Pengguna",
+      "placeholder": "Masukkan Nama Pengguna"
+    }
+  },
+  "label": {
+    "language": "Bahasa",
+    "logoutConfirmation": "Adakah anda pasti mahu log keluar?",
+    "loading": "Memuatkan",
+    "pleaseSelect": "Sila Pilih",
+    "emptyOptions": "Tiada Pilihan",
+    "description": "Penerangan",
+    "action": "Tindakan",
+    "dateAndTime": "Tarikh & Masa",
+    "count": "Kira",
+    "completed": "Selesai",
+    "noDataFound": "Tiada Data Ditemui",
+    "invalidPassword": "Kata Laluan Tidak Sah",
+    "online": "Dalam Talian",
+    "connectivityStatus": "Status Ketersambungan",
+    "connected": "Bersambung",
+    "disconnected": "Terputus Sambungan",
+    "status": {
+      "valid": "Sah",
+      "invalid": "Tidak Sah",
+      "awaitingCheck": "Menunggu Verif",
+      "verifying": "Mengesahkan"
+    },
+    "connectionLoss": "Sambungan Terputus",
+    "changeLanguage": "Tukar Bahasa",
+    "invalidAction": "Tindakan tidak sah",
+    "offline": "Luar Talian"
+  },
+  "button": {
+    "login": "Log Masuk",
+    "logout": "Log Keluar",
+    "cancel": "Batal",
+    "update": "Kemas Kini",
+    "save": "Simpan",
+    "next": "Seterusnya",
+    "continueAndSave": "Teruskan & Simpan",
+    "saveAndNext": "Simpan & Seterusnya",
+    "submit": "Hantar",
+    "okay": "Okay",
+    "confirm": "Sahkan",
+    "copy": "Salin",
+    "close": "Tutup"
+  }
+}

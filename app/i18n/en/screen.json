@@ -1,0 +1,15 @@
+{
+  "Login": {
+    "title": "Login"
+  },
+  "Home": {
+    "tools": "Tools"
+  },
+  "Settings": {
+    "title": "Settings"
+  },
+  "Signin": {
+    "success": "Login Successful",
+    "failed": "Login Failed"
+  }
+}

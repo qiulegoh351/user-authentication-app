@@ -1,0 +1,6 @@
+export const BUTTON_COLORS = {
+  HOVER_CONTAINED: 'rgba(255, 49, 138, 1)',
+  DISABLED_CONTAINED: 'rgba(255, 61, 125, 0.3)',
+  HOVER_OUTLINED: 'rgba(255, 255, 255, .5)',
+  DISABLED_OUTLINED: 'rgba(100, 100, 100, 0.5)',
+};

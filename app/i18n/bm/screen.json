@@ -1,0 +1,15 @@
+{
+  "Login": {
+    "title": "Log Masuk"
+  },
+  "Home": {
+    "tools": "Alatan"
+  },
+  "Settings": {
+    "title": "Tetapan"
+  },
+  "Signin": {
+    "success": "Log Masuk Berjaya",
+    "failed": "Log Masuk Gagal"
+  }
+}

@@ -1,0 +1,18 @@
+export const space = {
+  '3xs': 1,
+  '2xs': 2,
+  'xs': 4,
+  'xxs': 6,
+  'sm': 8,
+  'md': 10,
+  'lg': 12,
+  'xl': 16,
+  '2xl': 24,
+  '2xxl': 27,
+  '3xl': 32,
+  '4xl': 48,
+  'containerPadding': 20,
+  'screenPadding': 20,
+  'rowGap': 14,
+  'sectionGap': 27,
+};
