@@ -1,5 +1,5 @@
 {
-  "name": "notesapp",
+  "name": "authenticationapp",
   "version": "0.0.1",
   "private": true,
   "main": "index.tsx",
@@ -22,7 +22,7 @@
     "align-deps": "npx expo install --fix",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:maestro": "maestro test -e MAESTRO_APP_ID=com.notesapp .maestro/flows",
+    "test:maestro": "maestro test -e MAESTRO_APP_ID=com.authenticationapp .maestro/flows",
     "adb": "adb reverse tcp:9090 tcp:9090 && adb reverse tcp:3000 tcp:3000 && adb reverse tcp:9001 tcp:9001 && adb reverse tcp:8081 tcp:8081",
     "generate:i18n": "node scripts/i18n-script.mjs && ts-node scripts/generateTxKeyPath.ts",
     "generate-tx-keys": "ts-node scripts/generateTxKeyPath.ts",

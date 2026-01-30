@@ -1,4 +1,4 @@
-package com.ignite.tamagui.stack
+package com.qiule.authentication.app
 
 import android.app.Application
 import android.content.res.Configuration

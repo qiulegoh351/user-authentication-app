@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "IgniteTamaguiStack.app"
-               BlueprintName = "IgniteTamaguiStack"
-               ReferencedContainer = "container:IgniteTamaguiStack.xcodeproj">
+               BuildableName = "AuthenticationApp.app"
+               BlueprintName = "AuthenticationApp"
+               ReferencedContainer = "container:AuthenticationApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "IgniteTamaguiStackTests.xctest"
-               BlueprintName = "IgniteTamaguiStackTests"
-               ReferencedContainer = "container:IgniteTamaguiStack.xcodeproj">
+               BuildableName = "AuthenticationAppTests.xctest"
+               BlueprintName = "AuthenticationAppTests"
+               ReferencedContainer = "container:AuthenticationApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "IgniteTamaguiStack.app"
-            BlueprintName = "IgniteTamaguiStack"
-            ReferencedContainer = "container:IgniteTamaguiStack.xcodeproj">
+            BuildableName = "AuthenticationApp.app"
+            BlueprintName = "AuthenticationApp"
+            ReferencedContainer = "container:AuthenticationApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "IgniteTamaguiStack.app"
-            BlueprintName = "IgniteTamaguiStack"
-            ReferencedContainer = "container:IgniteTamaguiStack.xcodeproj">
+            BuildableName = "AuthenticationApp.app"
+            BlueprintName = "AuthenticationApp"
+            ReferencedContainer = "container:AuthenticationApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

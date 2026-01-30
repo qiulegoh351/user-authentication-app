@@ -24,8 +24,8 @@
         <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
-        <data android:scheme="ignitetamaguistack"/>
-        <data android:scheme="exp+ignitetamaguistack"/>
+        <data android:scheme="authenticationapp"/>
+        <data android:scheme="exp+authenticationapp"/>
       </intent-filter>
     </activity>
   </application>

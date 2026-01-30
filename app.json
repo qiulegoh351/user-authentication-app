@@ -1,7 +1,7 @@
 {
-  "name": "Ignite Tamagui Stack",
-  "slug": "Ignite Tamagui Stack",
-  "scheme": "ignitetamaguistack",
+  "name": "Authentication App",
+  "slug": "AuthenticationApp",
+  "scheme": "authenticationapp",
   "version": "1.0.0",
   "orientation": "portrait",
   "userInterfaceStyle": "automatic",
@@ -11,12 +11,10 @@
   },
   "newArchEnabled": true,
   "jsEngine": "hermes",
-  "assetBundlePatterns": [
-    "**/*"
-  ],
+  "assetBundlePatterns": ["**/*"],
   "android": {
     "icon": "./assets/images/app-icon-android-legacy.png",
-    "package": "com.ignite.tamagui.stack",
+    "package": "com.qiule.authentication.app",
     "adaptiveIcon": {
       "foregroundImage": "./assets/images/app-icon-android-adaptive-foreground.png",
       "backgroundImage": "./assets/images/app-icon-android-adaptive-background.png"
@@ -27,7 +25,7 @@
   "ios": {
     "icon": "./assets/images/app-icon-ios.png",
     "supportsTablet": true,
-    "bundleIdentifier": "com.ignite.tamagui.stack"
+    "bundleIdentifier": "com.qiule.authentication.app"
   },
   "web": {
     "favicon": "./assets/images/app-icon-web-favicon.png",

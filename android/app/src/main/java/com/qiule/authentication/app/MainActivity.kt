@@ -1,4 +1,4 @@
-package com.ignite.tamagui.stack
+package com.qiule.authentication.app
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

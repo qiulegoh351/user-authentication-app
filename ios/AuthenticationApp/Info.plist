@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Ignite Tamagui Stack</string>
+	<string>Authentication App</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,14 +27,14 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>ignitetamaguistack</string>
-				<string>com.ignite.tamagui.stack</string>
+				<string>authenticationapp</string>
+				<string>com.qiule.authentication.app</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>exp+ignitetamaguistack</string>
+				<string>exp+authenticationapp</string>
 			</array>
 		</dict>
 	</array>
