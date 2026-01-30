@@ -1,7 +1,7 @@
 import { writeFile } from 'fs';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 
-const SPREADSHEET_ID = '1-3GGG_r5g_4kShijz9VFuW1Dv2gNPUpWcoofNtCOnD0';
+const SPREADSHEET_ID = '13gF0XdYzus_12JI7SM1BYsvsmL-TfygyJFkMEJDcgVI';
 const API_KEY = 'AIzaSyCyaJZ7J4ptDaC7Ep8dWAytZt1LSeZzHgQ';
 const OUTPUT_DIR = './app/i18n';
 
