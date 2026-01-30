@@ -3,7 +3,7 @@ import { ViewStyle } from 'react-native';
 export type Presets = 'shadow' | 'boderLine';
 
 export const $baseStyle: ViewStyle = {
-  backgroundColor: 'white',
+  minHeight: 'auto',
 };
 
 export const $presets: Record<Presets, ViewStyle> = {

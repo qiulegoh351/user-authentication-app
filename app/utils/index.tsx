@@ -7,3 +7,4 @@ export * from './safeJsonParse';
 export * from './toastMessage';
 export * from './mmkv';
 export * from './useSafeTimeout';
+export * from './useBackHandler';

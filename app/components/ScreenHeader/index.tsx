@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import ChevronLeft from '@assets/icons/chevron-left.svg';
+import ChevronLeft from '@assets/icons/arrow-left.svg';
 import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Stack, XStack } from 'tamagui';
@@ -8,7 +8,6 @@ import { ScreenHeaderProps } from './props';
 import { Text, TextProps } from '../Text';
 import { DEFAUL_HEADER_HEIGHT } from './settings';
 import TouchableOpacity from '../TouchableOpacity';
-
 /**
  * ===========================
  * MAIN
@@ -17,9 +16,9 @@ import TouchableOpacity from '../TouchableOpacity';
 const ScreenHeaderView: React.FC<ScreenHeaderProps> = (props) => {
   const {
     right,
-    backButton = true,
+    backButton = false,
     title = '',
-    extra,
+    bottom,
     tx,
     containerProps,
     titleAlign = 'left',
@@ -33,9 +32,7 @@ const ScreenHeaderView: React.FC<ScreenHeaderProps> = (props) => {
   // ====================== VARIABLES
   const titleProps: TextProps = {
     tx,
-    color: 'white',
-    fontWeight: '$600',
-    fontSize: '$lg',
+    text: title,
   };
 
   // ====================== EVENTS
@@ -47,9 +44,8 @@ const ScreenHeaderView: React.FC<ScreenHeaderProps> = (props) => {
 
   // ====================== VIEWS
   return (
-    <Stack>
+    <Stack backgroundColor={'$background'}>
       <XStack
-        backgroundColor={'$primary100'}
         paddingHorizontal={'$screenPadding'}
         height={DEFAUL_HEADER_HEIGHT + insets?.top}
         paddingTop={insets?.top}
@@ -58,13 +54,23 @@ const ScreenHeaderView: React.FC<ScreenHeaderProps> = (props) => {
         gap={'$xl'}
         {...containerProps}
       >
-        <XStack flex={1} gap={'$screenPadding'} alignItems="center">
+        <XStack flex={1} gap={'$sm'} alignItems="center">
           {backButton && (
             <TouchableOpacity hitSlop={30} onPress={onPressBack ?? onPressBackInner}>
               <ChevronLeft color="white" />
             </TouchableOpacity>
           )}
-          {titleAlign === 'left' && <Text text={title} {...titleProps} />}
+          {titleAlign === 'left' && (
+            <Text
+              preset="heading"
+              numberOfLines={1}
+              color="white"
+              flexShrink={1}
+              minWidth={0}
+              text={title}
+              {...titleProps}
+            />
+          )}
         </XStack>
 
         {right}
@@ -81,11 +87,11 @@ const ScreenHeaderView: React.FC<ScreenHeaderProps> = (props) => {
             alignItems="center"
             justifyContent="center"
           >
-            <Text text={title} {...titleProps} />
+            <Text preset="heading" text={title} {...titleProps} />
           </Stack>
         )}
       </XStack>
-      {extra}
+      {bottom}
     </Stack>
   );
 };

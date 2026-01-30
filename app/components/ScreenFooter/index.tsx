@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { View } from 'react-native';
 import { useReanimatedKeyboardAnimation } from 'react-native-keyboard-controller';
+import { KeyboardController } from 'react-native-keyboard-controller';
 import Animated, { Extrapolation, interpolate, useAnimatedStyle } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getTokens, Stack } from 'tamagui';
@@ -28,32 +28,31 @@ const ScreenFooterView: React.FC<ScreenFooterProps> = (props) => {
 
   // =============== ANIMATED
   const animatedStyle = useAnimatedStyle(() => {
-    const paddingBottom = interpolate(
-      progress.value,
-      [0, 1],
-      [safeArea ? insets.bottom + spaceTokens.$xl.val : spaceTokens.$xl.val, spaceTokens.$xl.val],
-      Extrapolation.CLAMP,
-    );
+    const start = safeArea ? insets.bottom + spaceTokens.$xl.val : spaceTokens.$xl.val;
+    const end = spaceTokens.$xl.val;
+    const paddingBottom = interpolate(progress.value, [0, 1], [start, end], Extrapolation.CLAMP);
     return { paddingBottom };
   }, []);
 
   // =============== VIEWS
   return (
-    <View style={presetStyle}>
+    <Stack style={presetStyle}>
       <AnimatedStack
         {...containerProps}
         style={[
           animatedStyle,
           {
             paddingHorizontal: spaceTokens.$screenPadding.val,
-            paddingVertical: spaceTokens.$xl.val,
+            paddingVertical: spaceTokens.$2xl.val,
+            alignItems: 'center',
           },
           containerProps?.style,
         ]}
+        onPress={() => KeyboardController.dismiss()}
       >
         {children && children}
       </AnimatedStack>
-    </View>
+    </Stack>
   );
 };
 

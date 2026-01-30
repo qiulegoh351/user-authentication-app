@@ -1,1 +1,1 @@
-export const DEFAUL_HEADER_HEIGHT = 48;
+export const DEFAUL_HEADER_HEIGHT = 68;

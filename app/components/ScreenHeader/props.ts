@@ -9,7 +9,7 @@ export type ScreenHeaderProps = {
   title?: string;
   tx?: TextProps['tx'];
   right?: false | React.ReactElement;
-  extra?: React.ReactElement;
+  bottom?: React.ReactElement;
   titleAlign?: 'left' | 'center';
   onPressBack?: () => void;
 };
