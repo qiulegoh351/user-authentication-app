@@ -35,6 +35,7 @@ const AppStack = () => {
     theme: { colors },
   } = useAppTheme();
 
+  if (isAuthenticated === null) return null;
   return (
     <Stack.Navigator
       screenOptions={{

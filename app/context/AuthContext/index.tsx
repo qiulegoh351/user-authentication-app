@@ -15,7 +15,7 @@ import { AuthProviderProps, AuthContextType } from './props';
 // Context
 // --------------------
 const AuthContext = createContext<AuthContextType>({
-  isAuthenticated: false,
+  isAuthenticated: null,
   user: null,
   login: () => {},
   signup: () => {},

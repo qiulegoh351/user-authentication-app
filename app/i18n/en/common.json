@@ -28,7 +28,7 @@
     "name": {
       "title": "Name",
       "required": "Name is required",
-      "placeholder": "Enter name"
+      "placeholder": "Enter Name"
     }
   },
   "label": {
