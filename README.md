@@ -1,77 +1,223 @@
-# Welcome to your new ignited app!
+# Ignite React Native App (Authentication App)
 
-> The latest and greatest boilerplate for Infinite Red opinions
+This project is built using the Ignite Expo Boilerplate from Infinite Red with a modern mobile stack including Expo Dev Client, Tamagui, Context API, MMKV, Async Storage, Gorhom Bottom Sheet, and Google Sheets–driven i18n.
 
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
+---
 
-- [Quick start documentation](https://github.com/infinitered/ignite/blob/master/docs/boilerplate/Boilerplate.md)
-- [Full documentation](https://github.com/infinitered/ignite/blob/master/docs/README.md)
+## Runtime Environment
+
+- Node.js: 22.13.1
+- Yarn: 1.22.22
+- Expo SDK: 54
+- React Native: 0.81.5
+- iOS Deployment Target: 14.0 (Expo SDK 54 default)
+- Android Target SDK: 34 (Expo SDK 54 default)
+
+---
 
 ## Getting Started
 
-```bash
-npm install --legacy-peer-deps
-npm run start
-```
-
-To make things work on your local simulator, or on your phone, you need first to [run `eas build`](https://github.com/infinitered/ignite/blob/master/docs/expo/EAS.md). We have many shortcuts on `package.json` to make it easier:
+Install dependencies:
 
 ```bash
-npm run build:ios:sim # build for ios simulator
-npm run build:ios:device # build for ios device
-npm run build:ios:prod # build for ios device
+yarn install
 ```
 
-### `./assets`
+````
 
-This directory is designed to organize and store various assets, making it easy for you to manage and use them in your application. The assets are further categorized into subdirectories, including `icons` and `images`:
+Start the app:
 
-```tree
-assets
+```bash
+yarn start
+```
+
+Start with environment:
+
+```bash
+yarn start:staging
+yarn start:prod
+```
+
+Run on device:
+
+```bash
+yarn ios
+yarn android
+```
+
+---
+
+## Translation (i18n)
+
+This app uses Google Spreadsheet as the single source of truth for translations.
+
+Spreadsheet:
+[https://docs.google.com/spreadsheets/d/13gF0XdYzus_12JI7SM1BYsvsmL-TfygyJFkMEJDcgVI/edit?gid=0#gid=0]
+
+To sync translations into the app:
+
+```bash
+yarn generate:i18n
+```
+
+This command will:
+
+1. Get translation data from Google Sheets
+2. Generate locale JSON files
+3. Generate type-safe translation key paths
+
+Script:
+
+```json
+"generate:i18n": "node scripts/i18n-script.mjs && ts-node scripts/generateTxKeyPath.ts"
+```
+
+Do not edit translation JSON manually.
+All translation changes must be done through the Google Spreadsheet.
+
+---
+
+## Running the App
+
+```bash
+yarn start
+yarn start:staging
+yarn start:prod
+```
+
+These commands use environment files:
+
+- `.env`
+- `.env.staging`
+- `.env.production`
+
+---
+
+## Build and Run (Expo Dev Client)
+
+```bash
+yarn ios
+yarn android
+```
+
+Build dev clients:
+
+```bash
+yarn build:ios:sim
+yarn build:ios:dev
+yarn build:ios:prod
+```
+
+---
+
+## Assets
+
+```
+assets/
 ├── icons
 └── images
 ```
 
-**icons**
-This is where your icon assets will live. These icons can be used for buttons, navigation elements, or any other UI components. The recommended format for icons is PNG, but other formats can be used as well.
+Usage:
 
-Ignite comes with a built-in `Icon` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/boilerplate/app/components/Icon.md).
+```ts
+import { Image } from 'react-native'
 
-**images**
-This is where your images will live, such as background images, logos, or any other graphics. You can use various formats such as PNG, JPEG, or GIF for your images.
-
-Another valuable built-in component within Ignite is the `AutoImage` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/Components-AutoImage.md).
-
-How to use your `icon` or `image` assets:
-
-```typescript
-import { Image } from 'react-native';
-
-const MyComponent = () => {
-  return (
-    <Image source={require('assets/images/my_image.png')} />
-  );
-};
+<Image source={require('assets/images/my_image.png')} />
 ```
 
-## Running Maestro end-to-end tests
+---
 
-Follow our [Maestro Setup](https://ignitecookbook.com/docs/recipes/MaestroSetup) recipe.
+## App Architecture
 
-## Next Steps
+The app follows a feature-oriented and scalable structure.
 
-### Ignite Cookbook
+```
+app/
+├── @types        # Global TypeScript types
+├── components    # Reusable UI components
+├── config        # App configuration and constants
+├── context       # React Context providers
+├── devtools      # Debug and development tools
+├── i18n          # i18next setup and locale files
+├── navigators    # React Navigation stacks and tabs
+├── screens       # App screens
+├── services      # APIs and external integrations
+├── stores        # Zustand stores
+├── theme         # Design system and tokens
+├── utils         # Shared helpers and hooks
+└── app.tsx       # App entry point
+```
 
-[Ignite Cookbook](https://ignitecookbook.com/) is an easy way for developers to browse and share code snippets (or “recipes”) that actually work.
+This structure separates UI, state, logic, configuration, and infrastructure cleanly and allows the app to scale without becoming hard to maintain.
 
-### Upgrade Ignite boilerplate
+---
 
-Read our [Upgrade Guide](https://ignitecookbook.com/docs/recipes/UpdatingIgnite) to learn how to upgrade your Ignite project.
+## Global Import Aliases
 
-## Community
+This project uses path aliases for cleaner imports.
 
-⭐️ Help us out by [starring on GitHub](https://github.com/infinitered/ignite), filing bug reports in [issues](https://github.com/infinitered/ignite/issues) or [ask questions](https://github.com/infinitered/ignite/discussions).
+Configured in `babel.config.js`:
 
-💬 Join us on [Slack](https://join.slack.com/t/infiniteredcommunity/shared_invite/zt-1f137np4h-zPTq_CbaRFUOR_glUFs2UA) to discuss.
+```js
+alias: {
+  '^@app/(.+)': './app/\\1',
+  '^@assets/(.+)': './assets/\\1',
+}
+```
 
-📰 Make our Editor-in-chief happy by [reading the React Native Newsletter](https://reactnativenewsletter.com/).
+Usage examples:
+
+```ts
+import Button from '@app/components/Button';
+import { useAppStore } from '@app/stores';
+import HomeIcon from '@assets/icons/home.png';
+```
+
+This avoids long relative imports and keeps codebase easy to refactor.
+
+---
+
+## Environment Variables
+
+The app supports multiple environments using `.env` files.
+
+```
+.env
+.env.staging
+.env.production
+```
+
+They are loaded via:
+
+```js
+path: process.env.ENVFILE || '.env';
+```
+
+And accessed in code:
+
+```ts
+import { API_URL } from '@env';
+```
+
+---
+
+## Tech Stack
+
+- Ignite (Expo)
+- TypeScript
+- Tamagui
+- Context API
+- MMKV (local storage)
+- Async Storage (local storage)
+- Gorhom Bottom Sheet
+- React Navigation
+- i18next
+- Google Sheets (translation source)
+
+---
+
+```
+
+```
+````
