@@ -1,3 +1,4 @@
+````md
 # Ignite React Native App (Authentication App)
 
 This project is built using the Ignite Expo Boilerplate from Infinite Red with a modern mobile stack including Expo Dev Client, Tamagui, Context API, MMKV, Async Storage, Gorhom Bottom Sheet, and Google Sheets–driven i18n.
@@ -22,7 +23,6 @@ Install dependencies:
 ```bash
 yarn install
 ```
-
 ````
 
 Start the app:
@@ -218,4 +218,3 @@ import { API_URL } from '@env';
 ```
 
 ```
-````
