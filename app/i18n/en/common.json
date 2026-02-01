@@ -2,7 +2,7 @@
   "input": {
     "email": {
       "title": "Email",
-      "placeholder": "Enter Username",
+      "placeholder": "Enter Email",
       "required": "Email is required",
       "invalid": "Invalid email format"
     },

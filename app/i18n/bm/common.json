@@ -2,7 +2,7 @@
   "input": {
     "email": {
       "title": "E-Mel",
-      "placeholder": "Masukkan Nama Pengguna",
+      "placeholder": "Masukkan E-Mel",
       "required": "E-Mel diperlukan",
       "invalid": "Format E-Mel tidak sah"
     },

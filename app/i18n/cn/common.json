@@ -2,7 +2,7 @@
   "input": {
     "email": {
       "title": "电子邮件",
-      "placeholder": "输入用户名",
+      "placeholder": "输入邮箱",
       "required": "必须提供电子邮件地址",
       "invalid": "电子邮件格式无效"
     },
