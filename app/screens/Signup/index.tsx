@@ -86,13 +86,13 @@ export const SignupScreen: FC<SignupScreenProps> = (props) => {
               placeholder={t('common:input.email.placeholder')}
             />
             <FormInput<FieldValues>
-              component="TextInput"
+              component="PasswordInput"
               name="password"
               title={t('common:input.password.title')}
               placeholder={t('common:input.password.placeholder')}
             />
             <FormInput<FieldValues>
-              component="TextInput"
+              component="PasswordInput"
               name="confirm_password"
               title={t('common:input.confirmPassword.title')}
               placeholder={t('common:input.confirmPassword.placeholder')}
