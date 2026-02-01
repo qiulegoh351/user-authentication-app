@@ -6,7 +6,8 @@ export type AuthProviderProps = {
 };
 
 export type AuthContextType = {
-  isAuthenticated: boolean | null;
+  isAuthenticated: boolean;
+  isAuthReady: boolean;
   user?: AuthUser | null;
   login: (props: LoginAction) => void;
   signup: (props: SignupAction) => void;

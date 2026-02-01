@@ -29,13 +29,13 @@ const exitRoutes = Config.exitRoutes;
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
 const AppStack = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isAuthReady } = useAuth();
 
   const {
     theme: { colors },
   } = useAppTheme();
 
-  if (isAuthenticated === null) return null;
+  if (!isAuthReady) return null;
   return (
     <Stack.Navigator
       screenOptions={{

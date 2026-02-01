@@ -15,7 +15,8 @@ import { AuthProviderProps, AuthContextType } from './props';
 // Context
 // --------------------
 const AuthContext = createContext<AuthContextType>({
-  isAuthenticated: null,
+  isAuthenticated: false,
+  isAuthReady: false,
   user: null,
   login: () => {},
   signup: () => {},
@@ -30,6 +31,7 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
   // =================== HOOKS
   const { t } = useTranslation();
   const [user, setUser] = useState<AuthUser | null>(null);
+  const [isAuthReady, setIsAuthReady] = useState<boolean>(false);
 
   // =================== VARIABLES
   const isAuthenticated = useMemo(() => !isEmpty(user), [user]);
@@ -108,16 +110,12 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
 
   // =================== EFFECTS
   useEffect(() => {
-    let isMounted = true;
-
     const hydrateSession = async () => {
       try {
         const raw = await AsyncStorage.getItem(STORAGE_KEY.SESSION);
         const session = safeJsonParse<AuthUser | null>(raw, null);
-
-        if (isMounted) {
-          setUser(session);
-        }
+        setUser(session);
+        setIsAuthReady(true);
       } catch (error) {
         if (__DEV__) {
           console.warn('Failed to hydrate auth session', error);
@@ -126,10 +124,6 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     };
 
     hydrateSession();
-
-    return () => {
-      isMounted = false;
-    };
   }, []);
 
   // =================== VIEWS
@@ -137,6 +131,7 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     <AuthContext.Provider
       value={{
         isAuthenticated,
+        isAuthReady,
         user,
         login,
         signup,
