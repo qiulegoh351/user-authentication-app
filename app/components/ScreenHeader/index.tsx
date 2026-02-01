@@ -44,7 +44,7 @@ const ScreenHeaderView: React.FC<ScreenHeaderProps> = (props) => {
 
   // ====================== VIEWS
   return (
-    <Stack backgroundColor={'$background'}>
+    <Stack backgroundColor={'$primary500'}>
       <XStack
         paddingHorizontal={'$screenPadding'}
         height={DEFAUL_HEADER_HEIGHT + insets?.top}
@@ -87,7 +87,7 @@ const ScreenHeaderView: React.FC<ScreenHeaderProps> = (props) => {
             alignItems="center"
             justifyContent="center"
           >
-            <Text preset="heading" text={title} {...titleProps} />
+            <Text preset="heading" color="white" text={title} {...titleProps} />
           </Stack>
         )}
       </XStack>

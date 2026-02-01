@@ -43,6 +43,7 @@ const BottomSheetContentView = (props: BottomSheetContentProps) => {
   // #region ============== VARIABLES
   // const defaultIndex = defaultOpen ? 0 : -1;
   const colorTokens = getTokens()?.color;
+  const spaceTokens = getTokens()?.space;
   // #endregion
 
   // #region ============== VIEWS
@@ -52,7 +53,7 @@ const BottomSheetContentView = (props: BottomSheetContentProps) => {
     return (
       <XStack alignItems="center" justifyContent="space-between" {...titleContainerProps}>
         {titleVisible ? (
-          <TextNode flex={1} preset="subheading" tx={tx}>
+          <TextNode flex={1} color="$primaryText" preset="subheading" tx={tx}>
             {title}
           </TextNode>
         ) : (
@@ -106,14 +107,11 @@ const BottomSheetContentView = (props: BottomSheetContentProps) => {
   };
 
   return (
-    <BottomSheetScrollView
-      style={{
-        paddingBottom: insets?.bottom,
-      }}
-    >
+    <BottomSheetScrollView>
       <Stack
         gap="$xl"
         padding="$screenPadding"
+        paddingBottom={insets?.bottom + spaceTokens?.xl?.val}
         paddingTop={showHandler ? 0 : '$screenPadding'}
         {...containerProps}
       >

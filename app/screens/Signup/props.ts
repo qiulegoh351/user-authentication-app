@@ -5,10 +5,13 @@ import { AppStackScreenProps } from '@app/navigators/AppNavigator/props';
  * MAIN
  * ===========================
  */
-export type SigninScreenProps = AppStackScreenProps<'Signin'>;
-export type SigninFieldValues = {
+export type SignupScreenProps = AppStackScreenProps<'Signup'>;
+
+export type SignupFieldValues = {
+  name?: string | null;
   email?: string | null;
   password?: string | null;
+  confirm_password?: string | null;
 };
 
 /**
@@ -16,4 +19,4 @@ export type SigninFieldValues = {
  * EXPORTS
  * ===========================
  */
-export default SigninScreenProps;
+export default SignupScreenProps;

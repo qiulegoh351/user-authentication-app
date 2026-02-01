@@ -69,8 +69,8 @@ export const FormInputView = <T extends FieldValues = FieldValues>(props: FormIn
         return (
           <Stack width={'100%'} gap={'$sm'} {...containerProps}>
             {title && (
-              <XStack flexWrap="wrap">
-                <TextNode fontSize={'$md'} fontWeight={'$500'} {...titleProps}>
+              <XStack alignItems="flex-start" flexWrap="wrap">
+                <TextNode preset="body" fontWeight="$500" {...titleProps}>
                   {title}
                 </TextNode>
                 {isRequired && (

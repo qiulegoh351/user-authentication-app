@@ -1,9 +1,9 @@
-import { StyleSheet } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import Image from '@app/components/Image';
 import Text from '@app/components/Text';
-import { $styles } from '@app/theme/styles';
+import Error from '@assets/images/toast-error.png';
+import Success from '@assets/images/toast-success.png';
 import { ToastConfig } from 'react-native-toast-message';
-import { Stack, View } from 'tamagui';
+import { View, XStack } from 'tamagui';
 /*
   1. Create the config
 */
@@ -47,25 +47,54 @@ const toastConfig: ToastConfig = {
   */
   successToast: ({ text1 }) => (
     <View
-      style={[
-        $styles.flex1,
-        {
-          maxWidth: '80%',
-          borderRadius: 20,
-          overflow: 'hidden',
+      flex={1}
+      borderRadius={'$radius.sm'}
+      borderLeftWidth={4}
+      borderLeftColor={'$green300'}
+      backgroundColor={'white'}
+      width={'90%'}
+      padding={'$lg'}
+      style={{
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 1,
         },
-      ]}
+        shadowOpacity: 0.2,
+        shadowRadius: 1.41,
+        elevation: 2,
+      }}
     >
-      <LinearGradient
-        colors={['#C724E1', '#4E22CC']}
-        locations={[0, 1]}
-        start={{ x: 0.5, y: 0 }}
-        end={{ x: 0.5, y: 1 }}
-        style={StyleSheet.absoluteFill}
-      />
-      <Stack borderRadius={'$radius.xl'} paddingVertical={'$md'} paddingHorizontal={'$xl'}>
-        <Text flex={1} textAlign="center" preset="subheading" text={text1} />
-      </Stack>
+      <XStack alignItems="center" gap="$sm">
+        <Image source={Success} style={{ width: 16, aspectRatio: 1 }} />
+        <Text flex={1} flexWrap="wrap" preset="body" text={text1} />
+      </XStack>
+    </View>
+  ),
+  errorToast: ({ text1 }) => (
+    <View
+      flex={1}
+      borderRadius={'$radius.sm'}
+      borderLeftWidth={4}
+      borderLeftColor={'$red400'}
+      backgroundColor={'white'}
+      width={'90%'}
+      padding={'$lg'}
+      style={{
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.2,
+        shadowRadius: 1.41,
+        elevation: 2,
+      }}
+    >
+      <XStack alignItems="center" gap="$sm">
+        <Image source={Error} style={{ width: 16, aspectRatio: 1 }} />
+        <Text flex={1} flexWrap="wrap" preset="body" text={text1} />
+      </XStack>
     </View>
   ),
 };

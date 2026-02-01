@@ -1,6 +1,4 @@
-import { BlurView } from 'expo-blur';
 import { Text } from '@app/components/Text';
-import { IS_ANDROID } from '@app/config/constant';
 import { BottomSheetTextInput } from '@gorhom/bottom-sheet';
 import trim from 'lodash/trim';
 import { Input as TamaguiInput, Stack, XStack, getTokens } from 'tamagui';
@@ -118,35 +116,24 @@ export const TextInput: React.FC<Props> = (props) => {
   };
 
   return (
-    <BlurView
-      intensity={IS_ANDROID ? 10 : 4}
-      tint="default"
-      style={{
-        width: '100%',
-        alignSelf: 'stretch',
-        overflow: 'hidden',
-        borderRadius: getTokens()?.radius?.$lg?.val,
+    <Stack
+      backgroundColor="$inputBg"
+      borderRadius={'$radius.sm'}
+      borderColor={borderColor}
+      paddingHorizontal="$containerPadding"
+      borderWidth={1}
+      focusStyle={{
+        borderColor: '$primary500',
       }}
+      {...parentContainerProps}
     >
-      <Stack
-        backgroundColor="$inputBg"
-        borderRadius={'$radius.lg'}
-        borderColor={borderColor}
-        paddingHorizontal="$containerPadding"
-        borderWidth={1}
-        focusStyle={{
-          borderColor: '$primary500',
-        }}
-        {...parentContainerProps}
-      >
-        <XStack alignItems="center" gap={'$md'} {...inputContainerProps}>
-          {prefix && renderPrefix()}
-          {renderTextInput()}
-          {postfix && postfix}
-        </XStack>
-        {extra && extra}
-      </Stack>
-    </BlurView>
+      <XStack alignItems="center" gap={'$md'} {...inputContainerProps}>
+        {prefix && renderPrefix()}
+        {renderTextInput()}
+        {postfix && postfix}
+      </XStack>
+      {extra && extra}
+    </Stack>
   );
 };
 

@@ -20,6 +20,7 @@ export type AppStackParamList = {
   Signin: undefined;
   Signup: undefined;
   // #end region
+  Home: undefined;
 
   WebView: { uri: string; title?: string; params?: any };
 };

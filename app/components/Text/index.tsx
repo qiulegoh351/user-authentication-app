@@ -1,4 +1,5 @@
 import { forwardRef, ForwardedRef, memo, useMemo } from 'react';
+import { Platform } from 'react-native';
 import { useTranslation } from '@app/i18n';
 import { decode } from 'html-entities';
 import { TamaguiTextElement, Text as TMGText } from 'tamagui';
@@ -74,6 +75,10 @@ const TextView = forwardRef(function Text(props: TextProps, ref: ForwardedRef<Ta
     <TMGText
       {...$presets[preset]}
       numberOfLines={!max ? numberOfLines : undefined}
+      fontFamily={Platform.select({
+        ios: 'Inter-Regular',
+        default: 'Inter',
+      })}
       {...rest}
       ref={ref}
     >

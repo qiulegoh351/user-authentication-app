@@ -24,6 +24,8 @@ export const IS_ANDROID = Platform.OS === 'android';
 // APP Storage Key
 export enum STORAGE_KEY {
   LANGUAGE = 'lang',
+  USERS = 'auth/users',
+  SESSION = 'auth/session',
 }
 
 // Language Translate Value
@@ -32,9 +34,6 @@ export const LANGUAGE_TRANSLATE_VALUE: { [key: string]: string } = {
   'en': 'English',
   'bm': 'Bahasa Melayu',
   'cn': '简体中文',
-  'tc': '繁體中文',
-  'th': 'ภาษาไทย',
-  'vi': 'Tiếng Việt',
 };
 
 // Languages
@@ -66,31 +65,31 @@ export const LANGUAGES = [
       value: 'cn',
     },
   },
-  {
-    label: 'Traditional Chinese',
-    value: 'tc',
-    metaData: {
-      code: ['tc'],
-      label: 'Traditional Chinese',
-      value: 'tc',
-    },
-  },
-  {
-    label: 'Thai',
-    value: 'th',
-    metaData: {
-      code: ['th'],
-      label: 'Thai',
-      value: 'th',
-    },
-  },
-  {
-    label: 'Vietnamese',
-    value: 'vi',
-    metaData: {
-      label: 'Vietnamese',
-      value: 'vi',
-      code: ['vi'],
-    },
-  },
+  // {
+  //   label: 'Traditional Chinese',
+  //   value: 'tc',
+  //   metaData: {
+  //     code: ['tc'],
+  //     label: 'Traditional Chinese',
+  //     value: 'tc',
+  //   },
+  // },
+  // {
+  //   label: 'Thai',
+  //   value: 'th',
+  //   metaData: {
+  //     code: ['th'],
+  //     label: 'Thai',
+  //     value: 'th',
+  //   },
+  // },
+  // {
+  //   label: 'Vietnamese',
+  //   value: 'vi',
+  //   metaData: {
+  //     label: 'Vietnamese',
+  //     value: 'vi',
+  //     code: ['vi'],
+  //   },
+  // },
 ];

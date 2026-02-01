@@ -1,4 +1,4 @@
-import { ComponentConfig, SelectInput, TextInput } from '@app/components';
+import { ComponentConfig, SelectInput, TextInput, PasswordInput } from '@app/components';
 
 export const config: ComponentConfig[] = [
   {
@@ -8,5 +8,9 @@ export const config: ComponentConfig[] = [
   {
     name: 'SelectInput',
     component: SelectInput,
+  },
+  {
+    name: 'PasswordInput',
+    component: PasswordInput,
   },
 ];

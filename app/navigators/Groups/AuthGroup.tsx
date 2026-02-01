@@ -1,4 +1,4 @@
-import { SigninScreen } from '@app/screens';
+import { SigninScreen, SignupScreen } from '@app/screens';
 
 import { CommonGroupProps } from './props';
 
@@ -14,6 +14,11 @@ export const createAuthGroup = (props: CommonGroupProps) => {
   return (
     <Stack.Group>
       <Stack.Screen name="Signin" component={SigninScreen} />
+      <Stack.Screen
+        name="Signup"
+        component={SignupScreen}
+        options={{ animation: 'slide_from_right' }}
+      />
     </Stack.Group>
   );
 };

@@ -1,8 +1,9 @@
-export const safeJsonParse = (str?: string): any => {
+export const safeJsonParse = <T>(raw: string | null, fallback: T): T => {
+  if (!raw) return fallback;
   try {
-    return JSON.parse(str ?? '');
+    return JSON.parse(raw) as T;
   } catch {
-    return '';
+    return fallback;
   }
 };
 

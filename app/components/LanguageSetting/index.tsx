@@ -12,7 +12,9 @@ import LanguageSettingProps from './props';
  * MAIN
  * ===========================
  */
-const LanguageSettingView: React.FC<LanguageSettingProps> = () => {
+const LanguageSettingView: React.FC<LanguageSettingProps> = (props) => {
+  const { color = '$primaryText' } = props;
+
   // =============== HOOKS
   const { setLanguage } = useAppStore((s) => s.actions);
   const {
@@ -27,8 +29,8 @@ const LanguageSettingView: React.FC<LanguageSettingProps> = () => {
 
   // =============== VIEWS
   const renderCustomActivator = useCallback(() => {
-    return <Languages size={24} color="$primaryText" />;
-  }, []);
+    return <Languages size={24} color={color} />;
+  }, [color]);
   return (
     <Stack>
       <SelectInput

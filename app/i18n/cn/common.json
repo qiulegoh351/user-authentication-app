@@ -2,11 +2,21 @@
   "input": {
     "email": {
       "title": "电子邮件",
-      "placeholder": "输入用户名"
+      "placeholder": "输入用户名",
+      "required": "必须提供电子邮件地址",
+      "invalid": "电子邮件格式无效"
     },
     "password": {
       "title": "密码",
-      "placeholder": "输入密码"
+      "placeholder": "输入密码",
+      "min": "密码长度少于6个字符。",
+      "required": "需要密码"
+    },
+    "confirmPassword": {
+      "title": "确认密码",
+      "placeholder": "输入确认密码",
+      "required": "需要确认密码",
+      "matches": "密码不匹配"
     },
     "search": {
       "placeholder": "搜索"
@@ -14,11 +24,17 @@
     "username": {
       "title": "用户名",
       "placeholder": "输入用户名"
+    },
+    "name": {
+      "title": "姓名",
+      "required": "需要姓名",
+      "placeholder": "输入姓名"
     }
   },
   "label": {
     "language": "语言",
     "logoutConfirmation": "您确定要退出吗？",
+    "deleteConfirmation": "您确定要删除此帐户吗？",
     "loading": "加载中",
     "pleaseSelect": "请选择",
     "emptyOptions": "没有选项",
@@ -42,7 +58,17 @@
     "connectionLoss": "连接丢失",
     "changeLanguage": "更改语言",
     "invalidAction": "无效操作",
-    "offline": "离线"
+    "offline": "离线",
+    "invalidEmailOrPassword": "电子邮件/密码格式无效",
+    "successLogin": "登录成功",
+    "signinToYourAccount": "登录您的帐户",
+    "alreadyHaveAccount": "已有账号？",
+    "createNewAccount": "创建新帐户",
+    "dontHaveAccount": "还没有账号？",
+    "successSignup": "注册成功",
+    "emailAlreadyTaken": "邮件已接收",
+    "createdAt": "创建于",
+    "incorrectCreadentials": "凭证错误"
   },
   "button": {
     "login": "登录",
@@ -57,6 +83,11 @@
     "okay": "好的",
     "confirm": "确认",
     "copy": "复制",
-    "close": "关闭"
+    "close": "关闭",
+    "signup": "创建",
+    "createAccount": "创建账户",
+    "signin": "登入",
+    "backToSignin": "返回登录页面",
+    "deleteAcc": "删除帐户"
   }
 }

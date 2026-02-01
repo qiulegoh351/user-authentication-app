@@ -8,6 +8,7 @@ import { ComponentProps, useEffect } from 'react';
 import { Linking } from 'react-native';
 import Config from '@app/config';
 import { useAuth } from '@app/context/AuthContext';
+import { HomeScreen } from '@app/screens';
 import { ErrorBoundary } from '@app/screens/Error/ErrorBoundary';
 import { useAppTheme } from '@app/theme/context';
 import { NavigationContainer } from '@react-navigation/native';
@@ -17,7 +18,6 @@ import { navigationRef, useBackButtonHandler } from '../navigationUtilities';
 import { AppStackParamList } from './props';
 import { createAuthGroup } from '../Groups';
 import linking from './linking';
-import BottomTabNavigator from '../BottomTabNavigator';
 
 /**
  * This is a list of all the route names that will exit the app if the back button
@@ -44,12 +44,12 @@ const AppStack = () => {
           backgroundColor: colors.background,
         },
       }}
-      initialRouteName={isAuthenticated ? 'BottomTab' : 'Signin'}
+      initialRouteName={isAuthenticated ? 'Home' : 'Signin'}
     >
       {/* ============== Auth Group */}
       {createAuthGroup({ Stack })}
 
-      <Stack.Screen name="BottomTab" component={BottomTabNavigator} />
+      <Stack.Screen name="Home" component={HomeScreen} />
     </Stack.Navigator>
   );
 };

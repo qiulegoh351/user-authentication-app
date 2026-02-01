@@ -1,73 +1,90 @@
+// =========================
+// PRIMARY (Brand)
+// =========================
 const primary: any = {
-  100: '#BF2228',
-  200: '#BF2228',
-  300: '#BF2228',
-  400: '#BF2228',
-  500: '#BF2228',
+  100: '#E6F2F1',
+  200: '#C2DFDD',
+  300: '#8FBFBC',
+  400: '#2E6F6A',
+  500: '#004643',
 };
 
+// =========================
+// NEUTRAL / SECONDARY
+// =========================
 const secondary: any = {
   50: '#FFFFFF',
-  75: '#F7F7F8',
-  100: '#F8F9FC',
-  125: '#F2F4F8',
+  75: '#F9FAFB',
+  100: '#F3F4F6',
+  125: '#E5E7EB',
   150: '#D1D5DB',
-  200: '#E9ECF3',
-  300: '#646464',
-  400: '#67708C',
-  500: '#374255',
-  600: '#252C38',
-  700: '#DAE2EE',
-  800: '#151920',
-  900: '#292a2dff',
+  200: '#9CA3AF',
+  300: '#6B7280',
+  400: '#4B5563',
+  500: '#374151',
+  600: '#1F2937',
+  700: '#111827',
+  800: '#0B1220',
+  900: '#020617',
 };
 
+// =========================
+// ACCENTS
+// =========================
 const blue: any = {
-  100: '#34A7FF',
+  100: '#DBEAFE',
+  200: '#93C5FD',
+  300: '#3B82F6',
 };
 
 const green: any = {
-  100: '#297355',
-  200: '#47C5A0',
+  100: '#DCFCE7',
+  200: '#4ADE80',
   300: '#47CB18',
+  400: '#16A34A',
 };
 
 const yellow: any = {
-  100: '#FFF4D7',
+  100: '#FEF3C7',
+  200: '#FACC15',
 };
 
 const orange: any = {
-  400: '#F59E0B',
-  500: '#EF7B4F',
+  400: '#FDBA74',
+  500: '#F97316',
   600: '#EA580C',
 };
 
 const purple: any = {
-  100: '#626FC8',
+  100: '#EDE9FE',
+  200: '#A78BFA',
 };
 
 const red: any = {
-  100: '#F86863',
-  300: '#F44336',
-  400: '#DC2626',
-  500: '#BF2228',
-  600: '#EC2224',
+  100: '#FEE2E2',
+  300: '#F87171',
+  400: '#EF4444',
+  500: '#EC2224',
 };
 
 const brown: any = {
-  100: '#754F5B',
+  100: '#E7D7CF',
 };
 
+// =========================
+// EXPORT TOKEN
+// =========================
 export const color = {
-  inputBg: '#EFEFEF',
-  disabled: '#DBDBDB',
-  border: '#E0E0E0',
-  errorText: '#EC2224',
-  primaryText: '#202020',
-  secondaryText: '#646464',
-  placeholderText: '#BBBBBB',
-  line: '#E0E0E0',
-  bg: '#F2F2F2',
+  // System
+  inputBg: '#FFFFFF',
+  disabled: '#E5E7EB',
+  border: '#C4C4C4',
+  errorText: '#DC2626',
+  primaryText: '#111827',
+  secondaryText: '#757575',
+  placeholderText: '#9CA3AF',
+  line: '#E5E7EB',
+  bg: '#F3F4F6',
 
   // Primary
   ...Object.keys(primary).reduce((acc: any, key: any) => {

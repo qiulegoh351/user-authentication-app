@@ -1,4 +1,4 @@
-import { SpinnerProps, StackProps } from 'tamagui';
+import { GetThemeValueForKey, SpinnerProps, StackProps } from 'tamagui';
 
 /**
  * ===========================
@@ -8,6 +8,7 @@ import { SpinnerProps, StackProps } from 'tamagui';
 export type LanguageSettingProps = {
   containerProps?: StackProps;
   SpinnerProps?: SpinnerProps;
+  color?: 'unset' | GetThemeValueForKey<'color'>;
 };
 
 /**

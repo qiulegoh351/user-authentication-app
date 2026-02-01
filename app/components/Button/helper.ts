@@ -1,7 +1,8 @@
 import { OpaqueColorValue } from 'react-native';
-import { GetThemeValueForKey } from 'tamagui';
+import { LinearGradientProps } from 'expo-linear-gradient';
+import { GetThemeValueForKey, getTokens } from 'tamagui';
 
-import { ButtonVariant } from './props';
+import ButtonProps, { ButtonVariant } from './props';
 import { BUTTON_COLORS } from './settings';
 
 export const createButtonTheme = (props: {
@@ -9,50 +10,93 @@ export const createButtonTheme = (props: {
   disabled: boolean;
   color?: GetThemeValueForKey<'backgroundColor'> | OpaqueColorValue;
   isHover?: boolean;
+  linearGradient?: ButtonProps['linearGradient'];
+  backgroundColor?: ButtonProps['backgroundColor'];
+  hoverColor?: ButtonProps['hoverColor'];
 }) => {
-  const { variant, disabled, color, isHover = false } = props;
+  const {
+    variant,
+    disabled,
+    color,
+    isHover = false,
+    linearGradient,
+    hoverColor: hoverColorProp,
+    backgroundColor: backgroundColorProp,
+  } = props;
 
-  let colorTheme = '$secondary50';
+  const colorTokens = getTokens()?.color;
+  let textColor = color || 'white';
   let borderTheme = {};
-  let spinnerColor = '#FFFFFF';
-  let hoverColor = BUTTON_COLORS.HOVER_CONTAINED;
+  let hoverColor = hoverColorProp ?? BUTTON_COLORS.HOVER_CONTAINED;
   let hoverBorder = {
     borderColor: 'transparent',
-    borderWidth: 1,
+    borderWidth: 1.5,
   };
+  let linearGradientColors: LinearGradientProps['colors'] = [
+    colorTokens?.primary500?.val,
+    colorTokens?.primary500?.val,
+  ];
 
   switch (variant) {
     case 'text':
-      colorTheme = '$primary500';
-      spinnerColor = '#202020';
+      hoverColor = 'transparent';
+      borderTheme = {
+        borderWidth: 0,
+      };
+      hoverBorder = {
+        borderColor: 'transparent',
+        borderWidth: 0,
+      };
+      textColor = color || '$primaryText';
+      if (isHover) {
+        textColor = hoverColorProp || '$secondary400';
+      }
+      linearGradientColors = ['transparent', 'transparent'];
       break;
 
     case 'outlined':
-      colorTheme = isHover || disabled ? BUTTON_COLORS.HOVER_CONTAINED : '$primary100';
       borderTheme = {
-        borderWidth: 1,
-        borderColor: '$border',
+        borderWidth: 1.5,
+        borderColor: backgroundColorProp || '$primaryText',
       };
       hoverBorder = {
         ...hoverBorder,
-        borderColor: 'rgba(224, 224, 224, .7)',
+        borderColor: hoverColorProp || BUTTON_COLORS.HOVER_OUTLINED,
       };
-      spinnerColor = '#BF2228';
-      hoverColor = BUTTON_COLORS.HOVER_OUTLINED;
+      textColor = color || '$primaryText';
+      if (isHover && hoverColorProp) {
+        textColor = hoverColorProp;
+      }
+      hoverColor = 'transparent';
+      linearGradientColors = ['transparent', 'transparent'];
       break;
     case 'contained':
     default:
-      if (disabled) {
-        colorTheme = 'white';
+      borderTheme = {
+        borderWidth: 1.5,
+        borderColor: backgroundColorProp || '$primary500',
+      };
+      hoverBorder = {
+        ...hoverBorder,
+        borderColor: hoverColorProp || BUTTON_COLORS.HOVER_OUTLINED,
+      };
+      if (backgroundColorProp) {
+        linearGradientColors = [backgroundColorProp, backgroundColorProp];
+      }
+      if (linearGradient?.main) {
+        linearGradientColors = linearGradient?.main;
+      }
+      if (disabled && linearGradient?.disabled) {
+        linearGradientColors = linearGradient?.disabled;
       }
       break;
   }
 
   return {
-    color: color ?? colorTheme,
+    textColor,
     border: borderTheme,
-    spinnerColor,
     hoverColor,
     hoverBorder,
+    linearGradientColors,
   };
 };

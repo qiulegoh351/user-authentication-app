@@ -1,6 +1,6 @@
 export const BUTTON_COLORS = {
-  HOVER_CONTAINED: 'rgba(255, 49, 138, 1)',
+  HOVER_CONTAINED: '#2E6F6A',
   DISABLED_CONTAINED: 'rgba(255, 61, 125, 0.3)',
-  HOVER_OUTLINED: 'rgba(255, 255, 255, .5)',
+  HOVER_OUTLINED: 'transparent',
   DISABLED_OUTLINED: 'rgba(100, 100, 100, 0.5)',
 };

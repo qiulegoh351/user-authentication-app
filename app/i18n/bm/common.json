@@ -2,11 +2,21 @@
   "input": {
     "email": {
       "title": "E-Mel",
-      "placeholder": "Masukkan Nama Pengguna"
+      "placeholder": "Masukkan Nama Pengguna",
+      "required": "E-Mel diperlukan",
+      "invalid": "Format E-Mel tidak sah"
     },
     "password": {
       "title": "Kata Laluan",
-      "placeholder": "Masukkan Kata Laluan"
+      "placeholder": "Masukkan Kata Laluan",
+      "min": "Panjang kata laluan kurang daripada 6 aksara.",
+      "required": "Kata laluan diperlukan"
+    },
+    "confirmPassword": {
+      "title": "Sahkan Kata Laluan",
+      "placeholder": "Masukkan Sahkan Kata Laluan",
+      "required": "Sahkan kata laluan diperlukan",
+      "matches": "Kata laluan tidak sepadan"
     },
     "search": {
       "placeholder": "Cari"
@@ -14,11 +24,17 @@
     "username": {
       "title": "Nama Pengguna",
       "placeholder": "Masukkan Nama Pengguna"
+    },
+    "name": {
+      "title": "Nama",
+      "required": "Nama Diperlukan",
+      "placeholder": "Masukkan Nama"
     }
   },
   "label": {
     "language": "Bahasa",
     "logoutConfirmation": "Adakah anda pasti mahu log keluar?",
+    "deleteConfirmation": "Adakah anda pasti mahu memadamkan akaun ini?",
     "loading": "Memuatkan",
     "pleaseSelect": "Sila Pilih",
     "emptyOptions": "Tiada Pilihan",
@@ -42,7 +58,17 @@
     "connectionLoss": "Sambungan Terputus",
     "changeLanguage": "Tukar Bahasa",
     "invalidAction": "Tindakan tidak sah",
-    "offline": "Luar Talian"
+    "offline": "Luar Talian",
+    "invalidEmailOrPassword": "Format E-Mel/Kata Laluan Tidak Sah",
+    "successLogin": "Log Masuk Berjaya",
+    "signinToYourAccount": "Log Masuk Ke Akaun Anda",
+    "alreadyHaveAccount": "Sudah Mempunyai Akaun?",
+    "createNewAccount": "Cipta Akaun Baharu",
+    "dontHaveAccount": "Tidak Mempunyai Akaun?",
+    "successSignup": "Daftar Dengan Berjaya",
+    "emailAlreadyTaken": "Emel Telah Diambil",
+    "createdAt": "Dicipta Pada",
+    "incorrectCreadentials": "Kelayakan Salah"
   },
   "button": {
     "login": "Log Masuk",
@@ -57,6 +83,11 @@
     "okay": "Okay",
     "confirm": "Sahkan",
     "copy": "Salin",
-    "close": "Tutup"
+    "close": "Tutup",
+    "signup": "Daftar",
+    "createAccount": "Cipta Akaun",
+    "signin": "Daftar Masuk",
+    "backToSignin": "Kembali ke Daftar Masuk",
+    "deleteAcc": "Padam Akaun"
   }
 }

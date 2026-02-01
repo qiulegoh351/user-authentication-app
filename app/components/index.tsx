@@ -8,3 +8,4 @@ export * from './ScreenFooter';
 export * from './Image';
 export * from './Input';
 export * from './FormInput';
+export * from './LanguageSetting';

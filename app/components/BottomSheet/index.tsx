@@ -122,7 +122,7 @@ const BottomSheetView = (props: BottomSheetProps, ref: React.ForwardedRef<Bottom
       onChange={onChangeHandler}
       handleComponent={() => renderHandler()}
       backgroundStyle={{
-        backgroundColor: colorTokens?.$primary200?.val,
+        backgroundColor: colorTokens?.$bg?.val,
       }}
       bottomInset={-insets.bottom / 2}
       backdropComponent={() => {

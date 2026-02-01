@@ -18,6 +18,7 @@ if (__DEV__) {
 import './utils/gestureHandler';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useFonts } from 'expo-font';
+import { AuthProvider } from '@app/context';
 import { useAppStore } from '@app/stores';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { getTokens, TamaguiProvider } from '@tamagui/core';
@@ -28,7 +29,6 @@ import Toast from 'react-native-toast-message';
 
 import { DEFAUL_HEADER_HEIGHT } from './components/ScreenHeader/settings';
 import toastConfig from './components/Toast/toast.config';
-import { AuthProvider } from './context/AuthContext';
 import { initI18n } from './i18n';
 import { AppNavigator } from './navigators/AppNavigator';
 import { useNavigationPersistence } from './navigators/navigationUtilities';

@@ -11,8 +11,7 @@ export const space = {
   '2xxl': 27,
   '3xl': 32,
   '4xl': 48,
-  'containerPadding': 20,
+  'containerPadding': 16,
   'screenPadding': 20,
-  'rowGap': 14,
-  'sectionGap': 27,
+  'formGap': 16,
 };

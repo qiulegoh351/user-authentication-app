@@ -37,14 +37,12 @@ type FontSizeToken =
 type FontSizeMap = {
   [K in FontSizeToken]: number;
 };
-const fontSize = fontTokens.size as FontSizeMap;
+export const fontSize = fontTokens.size as FontSizeMap;
 
 export const $baseStyle: TMGTextProps = {
   fontSize: '$md',
   color: '$primaryText',
-  fontWeight: '$400',
-  lineHeight: fontSize['md'] * 1.4,
-  letterSpacing: -fontSize['md'] * (-2 / 100),
+  fontWeight: '$500',
 };
 
 export const $presets: Record<Presets, TMGTextProps> = {
@@ -53,36 +51,30 @@ export const $presets: Record<Presets, TMGTextProps> = {
     ...$baseStyle,
     fontSize: '$2xl',
     fontWeight: '$600',
-    lineHeight: fontSize['2xl'] * 1.3,
-    letterSpacing: 0,
   },
   subheading: {
     ...$baseStyle,
-    fontSize: '$lg',
-    fontWeight: '$400',
-    lineHeight: fontSize['lg'] * 1.4,
-    letterSpacing: -fontSize['lg'] * (-2 / 100),
+    fontSize: '$xl',
+    fontWeight: '$500',
+    color: '$primary500',
   },
   body: $baseStyle,
   caption: {
     ...$baseStyle,
     fontWeight: '$400',
-    lineHeight: fontSize['md'] * 1.3,
-    letterSpacing: -fontSize['md'] * (-2 / 100),
+    color: '$secondaryText',
   },
   button: {
     ...$baseStyle,
-    lineHeight: fontSize['md'] * 1.3,
     textAlign: 'center',
     fontWeight: '$600',
+    color: 'white',
   },
   bottomTab: {
     ...$baseStyle,
     fontSize: '$sm',
     fontWeight: '$500',
     textAlign: 'center',
-    lineHeight: fontSize['sm'] * 1.2,
-    letterSpacing: -fontSize['sm'] * (-2 / 100),
   },
   formLabel: {
     ...$baseStyle,

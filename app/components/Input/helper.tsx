@@ -1,4 +1,3 @@
-import { IS_IOS } from '@app/config/constant';
 import { getTokens, InputProps, StackProps } from 'tamagui';
 
 type FormThemeArgs = {
@@ -22,9 +21,9 @@ export const createInputTheme = (args: FormThemeArgs) => {
   };
 
   const borderProps = (): StackProps => {
-    if (disabled) return { borderColor: 'transparent' };
+    if (disabled) return { borderColor: '$disabled' };
     if (error) return { borderColor: errorText };
-    return { borderColor: inputBg };
+    return { borderColor: '$border' };
   };
 
   const colorProps = () => {
@@ -35,7 +34,7 @@ export const createInputTheme = (args: FormThemeArgs) => {
 
   const textProps = (): InputProps => {
     return {
-      letterSpacing: -12 * (-2 / 100),
+      letterSpacing: 0.25,
       fontSize: '$md',
       fontWeight: '$400',
       lineHeight: 1.4 * 14,
@@ -48,8 +47,8 @@ export const createInputTheme = (args: FormThemeArgs) => {
       margin: 0,
       textAlignVertical: 'center',
       placeholderTextColor: '$placeholderText',
-      color: '$inputText',
-      fontFamily: IS_IOS ? 'PingFang-SC-Regular' : 'NotoSansSC-Regular',
+      color: '$primaryText',
+      fontFamily: 'Inter-Regular',
       borderRadius: '$radius.lg',
       cursorColor: '$primaryText',
       backgroundColor: '$inputBg',

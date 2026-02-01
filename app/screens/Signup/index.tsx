@@ -1,99 +1,84 @@
 import { FC, useCallback, useState } from 'react';
-import { Button, FormInput, LanguageSetting, Screen, Text } from '@app/components';
+import { Button, FormInput, Screen, Text } from '@app/components';
 import { useAuth } from '@app/context';
 import { useTranslation } from '@app/i18n';
-import { toast, useSafeTimeout, useScreenFocus } from '@app/utils';
+import { toast, useSafeTimeout } from '@app/utils';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { CommonActions } from '@react-navigation/native';
 import { useForm, FormProvider } from 'react-hook-form';
 import { Stack } from 'tamagui';
 
-import SigninScreenProps, { SigninFieldValues as FieldValues } from './props';
-import { loginCheckSchema, signinFormSchema } from './validation';
+import SignupScreenProps, { SignupFieldValues as FieldValues } from './props';
+import { signupFormSchema } from './validation';
 
 /**
  * ===========================
  * MAIN
  * ===========================
  */
-export const SigninScreen: FC<SigninScreenProps> = (props) => {
+export const SignupScreen: FC<SignupScreenProps> = (props) => {
   const { navigation } = props;
 
   // =============== HOOKS
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const { setSafeTimeout } = useSafeTimeout();
-  const { login } = useAuth();
+  const { signup } = useAuth();
   const forms = useForm<FieldValues>({
     defaultValues: {
+      name: null,
       email: null,
       password: null,
+      confirm_password: null,
     },
-    resolver: yupResolver(signinFormSchema(t)),
+    resolver: yupResolver(signupFormSchema(t)),
   });
-  const { handleSubmit, reset } = forms;
+  const { handleSubmit } = forms;
 
   // =============== VARIABLES
 
   // =============== EVENTS
   const onSubmit = useCallback(
     (values: FieldValues) => {
-      const isValid = loginCheckSchema.isValidSync(values);
-      if (!isValid) {
-        toast.error(t('common:label.invalidEmailOrPassword'));
-        return;
-      }
       setLoading(true);
       setSafeTimeout(() => {
         const data = {
+          name: values.name || '',
           email: values.email || '',
           password: values.password || '',
         };
-        login({
+        signup({
           data,
           onSuccess: () => {
-            toast.success(t('common:label.successLogin'));
-            navigation.dispatch(
-              CommonActions.reset({
-                index: 1,
-                routes: [
-                  {
-                    name: 'Home',
-                  },
-                ],
-              }),
-            );
+            toast.success(t('common:label.successSignup'));
+            navigation.goBack();
           },
           onError: ({ message }) => {
             toast.error(message);
           },
         });
+
         setLoading(false);
       });
     },
-    [login, navigation, setSafeTimeout, t],
+    [signup, t, navigation, setSafeTimeout],
   );
 
   // =============== EFFECTS
-  useScreenFocus({
-    onFocus: () => reset(),
-  });
 
   // =============== VIEWS
   return (
     <FormProvider {...forms}>
       <Screen systemBarStyle="dark" preset="scroll">
-        <Stack alignItems="flex-end" top={'$sm'} paddingHorizontal={'$screenPadding'}>
-          <LanguageSetting />
-        </Stack>
         <Stack flex={1} gap="$2xl" justifyContent="center" padding="$screenPadding">
-          <Text
-            textAlign="center"
-            preset="subheading"
-            text={t('common:label.signinToYourAccount')}
-          />
+          <Text textAlign="center" preset="subheading" text={t('common:label.createNewAccount')} />
 
           <Stack gap="$formGap">
+            <FormInput<FieldValues>
+              component="TextInput"
+              name="name"
+              title={t('common:input.name.title')}
+              placeholder={t('common:input.name.placeholder')}
+            />
             <FormInput<FieldValues>
               component="TextInput"
               name="email"
@@ -101,29 +86,35 @@ export const SigninScreen: FC<SigninScreenProps> = (props) => {
               placeholder={t('common:input.email.placeholder')}
             />
             <FormInput<FieldValues>
-              component="PasswordInput"
+              component="TextInput"
               name="password"
               title={t('common:input.password.title')}
               placeholder={t('common:input.password.placeholder')}
+            />
+            <FormInput<FieldValues>
+              component="TextInput"
+              name="confirm_password"
+              title={t('common:input.confirmPassword.title')}
+              placeholder={t('common:input.confirmPassword.placeholder')}
             />
           </Stack>
 
           <Button
             loading={loading}
-            text={t('common:button.signin')}
+            text={t('common:button.signup')}
             onPress={handleSubmit(onSubmit)}
           />
 
           <Text preset="caption" textAlign="center">
-            {t('common:label.dontHaveAccount')}{' '}
+            {t('common:label.alreadyHaveAccount')}{' '}
             <Text
               color="$primary500"
               fontWeight="$600"
               preset="caption"
               hitSlop={30}
-              onPress={() => navigation.navigate('Signup')}
+              onPress={() => navigation.goBack()}
             >
-              {t('common:button.createAccount')}
+              {t('common:button.backToSignin')}
             </Text>
           </Text>
         </Stack>
@@ -138,4 +129,4 @@ export const SigninScreen: FC<SigninScreenProps> = (props) => {
  * ===========================
  */
 export * from './props';
-export default SigninScreen;
+export default SignupScreen;

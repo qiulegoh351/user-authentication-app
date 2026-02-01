@@ -1,4 +1,4 @@
-import { SelectInputProps, TextInputProps } from '@app/components';
+import { SelectInputProps, TextInputProps, PasswordInputProps } from '@app/components';
 
 import { ComponentPropsMap as LibraryComponentPropsMap } from './props';
 
@@ -7,5 +7,6 @@ declare module '@app/components/FormInput' {
     // register over heres
     TextInput: TextInputProps;
     SelectInput: SelectInputProps;
+    PasswordInput: PasswordInputProps;
   }
 }

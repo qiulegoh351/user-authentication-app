@@ -246,7 +246,7 @@ const SelectInputView = <T extends object>(props: SelectInputProps<T>) => {
         <Stack
           borderTopLeftRadius={'$radius.xl'}
           borderTopRightRadius={'$radius.xl'}
-          backgroundColor={'$primary200'}
+          backgroundColor={'$bg'}
           justifyContent="space-between"
           flex={1}
         >

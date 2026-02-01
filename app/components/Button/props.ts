@@ -1,4 +1,5 @@
 import { OpaqueColorValue, StyleProp, ViewStyle } from 'react-native';
+import { LinearGradientProps } from 'expo-linear-gradient';
 import { ButtonProps as TMBButtonProps } from 'tamagui';
 import { GetThemeValueForKey } from 'tamagui';
 
@@ -46,6 +47,15 @@ export type ButtonProps = Omit<TMBButtonProps, OmitButtonProps> & {
   unstyledDisabled?: boolean;
 
   containerStyle?: StyleProp<ViewStyle>;
+
+  linearGradient?: {
+    main?: LinearGradientProps['colors'];
+    disabled?: LinearGradientProps['colors'];
+  };
+
+  hoverColor?: string;
+
+  backgroundColor?: string;
 };
 
 export default ButtonProps;

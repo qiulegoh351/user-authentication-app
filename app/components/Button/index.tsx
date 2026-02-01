@@ -1,6 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Button as TMGButton, Stack, getTokens } from 'tamagui';
+import { Button as TMGButton, Stack } from 'tamagui';
 
 import Text from '../Text';
 import { createButtonTheme } from './helper';
@@ -32,6 +32,9 @@ const ButtonView: React.FC<ButtonProps> = (props) => {
     tx,
     txOptions,
     preset = 'default',
+    backgroundColor,
+    linearGradient,
+    hoverColor: hoverColorProp,
     ...restProps
   } = props;
 
@@ -39,14 +42,17 @@ const ButtonView: React.FC<ButtonProps> = (props) => {
   const [isHover, setIsHover] = useState(false);
 
   // =============== VARIABLES
-  const borderRadius = getTokens()?.radius?.$2xl?.val;
+  const borderRadius = 100;
   const isDisabled = disabled || loading;
   const isDisabledStyle = Boolean(isDisabled && !unstyledDisabled);
-  const { spinnerColor, hoverColor, hoverBorder } = createButtonTheme({
+  const { hoverColor, border, hoverBorder, linearGradientColors, textColor } = createButtonTheme({
     variant,
     disabled: isDisabledStyle,
     color,
     isHover,
+    linearGradient,
+    backgroundColor,
+    hoverColor: hoverColorProp,
   });
 
   // =============== EVENTS
@@ -57,10 +63,28 @@ const ButtonView: React.FC<ButtonProps> = (props) => {
     [setIsHover],
   );
 
+  // const colors: LinearGradientProps['colors'] = useMemo(() => {
+  //   if (isDisabled)
+  //     return (
+  //       linearGradient?.disabled || [colorTokens?.primary400?.val, colorTokens?.primary400?.val]
+  //     );
+  //   if (backgroundColor) {
+  //     return [backgroundColor, backgroundColor];
+  //   }
+  //   return linearGradient?.main || [colorTokens?.primary500?.val, colorTokens?.primary500?.val];
+  // }, [
+  //   backgroundColor,
+  //   linearGradient?.main,
+  //   linearGradient?.disabled,
+  //   isDisabled,
+  //   colorTokens?.primary500?.val,
+  //   colorTokens?.primary400?.val,
+  // ]);
+
   // =============== VIEWS
   return (
     <LinearGradient
-      colors={isDisabled ? ['#8B1F54', '#7A1A47'] : ['#F94695', '#F13A76']}
+      colors={linearGradientColors}
       locations={[0, 1]}
       start={{ x: 0.5, y: 0 }}
       end={{ x: 0.5, y: 1 }}
@@ -82,6 +106,7 @@ const ButtonView: React.FC<ButtonProps> = (props) => {
         }}
         iconAfter={endIcon}
         borderRadius={borderRadius}
+        {...border}
         onPressIn={() => onChangeHover(true)}
         onPressOut={() => onChangeHover(false)}
         {...$presetStyle[preset]}
@@ -93,11 +118,11 @@ const ButtonView: React.FC<ButtonProps> = (props) => {
       >
         {loading ? (
           <Stack height={20}>
-            <Spinner color={spinnerColor} />
+            <Spinner color={textColor as any} />
           </Stack>
         ) : (
           children || (
-            <Text preset="button" tx={tx} txOptions={txOptions} {...textProps}>
+            <Text color={textColor} preset="button" tx={tx} txOptions={txOptions} {...textProps}>
               {text}
             </Text>
           )
