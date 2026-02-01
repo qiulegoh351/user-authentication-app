@@ -52,8 +52,6 @@ yarn android
 This app uses Google Spreadsheet as the single source of truth for translations.
 
 Spreadsheet:
-[https://docs.google.com/spreadsheets/d/13gF0XdYzus_12JI7SM1BYsvsmL-TfygyJFkMEJDcgVI/edit?gid=0#gid=0]
-
 To sync translations into the app:
 
 ```bash
@@ -95,6 +93,8 @@ These commands use environment files:
 
 ## Build and Run (Expo Dev Client)
 
+Run:
+
 ```bash
 yarn ios
 yarn android
@@ -112,7 +112,7 @@ yarn build:ios:prod
 
 ## Assets
 
-```
+```txt
 assets/
 ├── icons
 └── images
@@ -121,9 +121,9 @@ assets/
 Usage:
 
 ```ts
-import { Image } from 'react-native'
+import { Image } from 'react-native';
 
-<Image source={require('assets/images/my_image.png')} />
+<Image source={require('assets/images/my_image.png')} />;
 ```
 
 ---
@@ -132,7 +132,7 @@ import { Image } from 'react-native'
 
 The app follows a feature-oriented and scalable structure.
 
-```
+```txt
 app/
 ├── @types        # Global TypeScript types
 ├── components    # Reusable UI components
@@ -182,7 +182,7 @@ This avoids long relative imports and keeps codebase easy to refactor.
 
 The app supports multiple environments using `.env` files.
 
-```
+```txt
 .env
 .env.staging
 .env.production
@@ -214,8 +214,6 @@ import { API_URL } from '@env';
 - React Navigation
 - i18next
 - Google Sheets (translation source)
-
----
 
 ```
 
